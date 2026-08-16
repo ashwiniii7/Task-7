@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <header>
+        <div class="container">
+            <h1>Task Manager</h1>
+            <button id="themeToggle" class="theme-btn">☀️ Light Mode</button>
+        </div>
+    </header>
+    <main class="container">
+        <section>
+            <h2>Create Task</h2>
+            <form id="taskForm" class="task-form">
+                <input type="text" id="taskTitle" placeholder="Enter task title" required>
+                <select id="taskCategory">
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit" class="add-btn">
+                    Add Task
+                </button>
+            </form>
+            <!--
+                ATTRIBUTE VS PROPERTY DEMONSTRATION
+                input.value
+                This is a DOM PROPERTY. It represents the input's
+                current value.
+                input.getAttribute("value")
+                This reads the original HTML ATTRIBUTE.
+                For example, JavaScript can change:
+                    input.value = "New Value";
+                without changing the original "value" attribute.
+                Therefore property and attribute can contain
+                different values.
+            -->
+        </section>
+        <section>
+            <h2>Task Controls</h2>
+            <div class="controls">
+                <input type="search" id="searchInput" placeholder="Search tasks...">
+                <select id="filterCategory">
+                    <option value="All">All Categories</option>
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button id="clearAll" class="clear-btn">
+                    Clear All
+                </button>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    Total:
+                    <strong id="totalCount">0</strong>
+                </div>
+                <div class="stat">
+                    Pending:
+                    <strong id="pendingCount">0</strong>
+                </div>
+                <div class="stat">
+                    Completed:
+                    <strong id="completedCount">0</strong>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Task List</h2>
+            <div id="taskContainer">
+                <div class="empty" id="emptyMessage">
+                    No tasks yet. Add your first task!
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Event Propagation Demonstration</h2>
+            <p>
+                Open the browser console and click the button below.
+            </p>
+            <div class="propagation-demo">
+                <div id="grandparent" class="grandparent">
+                    Grandparent
+                    <div id="parent" class="parent">
+                        Parent
+                        <br><br>
+                        <button id="childButton" class="child">
+                            Child Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Browser Rendering Pipeline</h2>
+            <div class="pipeline">
+                <div class="pipeline-card">
+                    HTML
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    Parsing
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    Tokenization
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    DOM Tree
+                </div>
+            </div>
+            <div class="pipeline">
+                <div class="pipeline-card">
+                    CSS
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    CSSOM Tree
+                </div>
+            </div>
+            <div class="pipeline">
+                <div class="pipeline-card">
+                    DOM Tree
+                </div>
+                <div class="arrow">+</div>
+                <div class="pipeline-card">
+                    CSSOM Tree
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    Render Tree
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    Layout
+                </div>
+                <div class="arrow">↓</div>
+                <div class="pipeline-card">
+                    Paint
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>
