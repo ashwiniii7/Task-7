@@ -207,8 +207,6 @@ body[data-theme="dark"] .task-card {
     color: #777;
 }
 
-        /* Event propagation */
-
 .propagation-demo {
     margin-top: 20px;
     padding: 30px;

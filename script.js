@@ -80,6 +80,7 @@ function createTaskCard(task) {
     card.append(header, actions);
     return card;
         }
+        
         function renderTasks() {
             const fragment = document.createDocumentFragment();
             taskContainer.replaceChildren();
