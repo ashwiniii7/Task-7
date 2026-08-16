@@ -4,13 +4,11 @@ A fully interactive Task Manager built using HTML, CSS, and Vanilla JavaScript.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - DOM Manipulation
 - Event Handling
-
----
 
 # Browser Rendering Concepts
 
@@ -42,7 +40,7 @@ For example:
 </div>
 
 
-3. DOM Tree
+## 3. DOM Tree
 
 DOM stands for Document Object Model.
 
@@ -74,7 +72,7 @@ document.querySelector("h1");
 
 This allows JavaScript to select and manipulate the heading.
 
-4. CSSOM Tree
+## 4. CSSOM Tree
 
 CSSOM stands for CSS Object Model.
 
@@ -91,7 +89,7 @@ The browser processes these CSS rules and creates a structure that represents th
 
 The CSSOM works together with the DOM to determine how elements should appear on the webpage.
 
-5. Render Tree
+## 5. Render Tree
 
 The Render Tree is created using information from both the DOM Tree and CSSOM Tree.
 
@@ -131,7 +129,8 @@ Event propagation has two important phases:
 
 Capturing Phase
 Bubbling Phase
-6. Event Capturing
+
+## 6. Event Capturing
 
 Event Capturing is the phase where an event travels from the outermost element toward the target element.
 
@@ -155,7 +154,7 @@ element.addEventListener("click", handler, true);
 
 The third argument true enables capturing.
 
-7. Event Bubbling
+## 7. Event Bubbling
 
 Event Bubbling is the phase where an event travels from the target element back toward its parent elements.
 
@@ -181,7 +180,7 @@ parent.addEventListener("click", function () {
 
 If a child button is clicked, the parent's event listener can also be triggered because of event bubbling.
 
-8. Event Delegation
+## 8. Event Delegation
 
 Event Delegation is a technique where a single event listener is attached to a parent element instead of adding separate listeners to every child element.
 
