@@ -1,84 +1,84 @@
 const taskForm = document.getElementById("taskForm");
-        const taskTitle = document.getElementById("taskTitle");
-        const taskCategory = document.getElementById("taskCategory");
-        const taskContainer = document.getElementById("taskContainer");
-        const emptyMessage = document.getElementById("emptyMessage");
-        const searchInput = document.getElementById("searchInput");
-        const filterCategory = document.getElementById("filterCategory");
-        const clearAll = document.getElementById("clearAll");
-        const totalCount = document.getElementById("totalCount");
-        const pendingCount = document.getElementById("pendingCount");
-        const completedCount = document.getElementById("completedCount");
-        const themeToggle = document.getElementById("themeToggle");
+const taskTitle = document.getElementById("taskTitle");
+const taskCategory = document.getElementById("taskCategory");
+const taskContainer = document.getElementById("taskContainer");
+const emptyMessage = document.getElementById("emptyMessage");
+const searchInput = document.getElementById("searchInput");
+const filterCategory = document.getElementById("filterCategory");
+const clearAll = document.getElementById("clearAll");
+const totalCount = document.getElementById("totalCount");
+const pendingCount = document.getElementById("pendingCount");
+const completedCount = document.getElementById("completedCount");
+const themeToggle = document.getElementById("themeToggle");
 
-        let tasks = JSON.parse(localStorage.getItem("domTasks")) || [];
+let tasks = JSON.parse(localStorage.getItem("domTasks")) || [];
 
-        function saveTasks() {
-            localStorage.setItem("domTasks", JSON.stringify(tasks));
-        }
+function saveTasks() {
+    localStorage.setItem("domTasks", JSON.stringify(tasks));
+}
 
-        function createTaskCard(task) {
-            const card = document.createElement("article");
-            card.setAttribute("class", "task-card");
-            card.setAttribute("data-id", task.id);
-            card.setAttribute("data-status", task.completed
-                ? "completed"
-                : "pending"
-            );
-            card.setAttribute("data-category", task.category);
-            if (task.completed) {
-                card.classList.add("completed");
-            }
-            const header = document.createElement("div");
-            header.classList.add("task-header");
-            const title = document.createElement("span");
-            title.classList.add("task-title");
+function createTaskCard(task) {
+    const card = document.createElement("article");
+    card.setAttribute("class", "task-card");
+    card.setAttribute("data-id", task.id);
+    card.setAttribute("data-status", task.completed
+        ? "completed"
+        : "pending"
+    );
+    card.setAttribute("data-category", task.category);
+    if (task.completed) {
+        card.classList.add("completed");
+    }
+    const header = document.createElement("div");
+    header.classList.add("task-header");
+    const title = document.createElement("span");
+    title.classList.add("task-title");
 
-            const titleText = document.createTextNode(task.title);
-            title.appendChild(titleText);
+    const titleText = document.createTextNode(task.title);
+    title.appendChild(titleText);
 
-            const category = document.createElement("span");
-            category.classList.add("category");
+    const category = document.createElement("span");
+    category.classList.add("category");
 
-            category.append(
-                document.createTextNode(task.category)
-            );
+    category.append(
+        document.createTextNode(task.category)
+    );
 
 
-            header.append(title, category);
+    header.append(title, category);
 
-            const actions = document.createElement("div");
-            actions.classList.add("task-actions");
+    const actions = document.createElement("div");
+    actions.classList.add("task-actions");
 
-            const editButton = document.createElement("button");
-            editButton.classList.add("edit-btn");
-            editButton.setAttribute("data-action", "edit");
-            editButton.append(
-                document.createTextNode("Edit")
-            );
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.setAttribute("data-action", "edit");
+    editButton.append(
+        document.createTextNode("Edit")
+    );
 
-            const completeButton = document.createElement("button");
-            completeButton.classList.add("complete-btn");
-            completeButton.setAttribute("data-action", "complete");
-            completeButton.append(
-                document.createTextNode(
-                    task.completed ? "Undo" : "Complete"
-                )
-            );
+    const completeButton = document.createElement("button");
+    completeButton.classList.add("complete-btn");
+    completeButton.setAttribute("data-action", "complete");
+    completeButton.append(
+        document.createTextNode(
+            task.completed ? "Undo" : "Complete"
+        )
+    );
 
-            const deleteButton = document.createElement("button");
-            deleteButton.classList.add("delete-btn");
-            deleteButton.setAttribute("data-action", "delete");
-            deleteButton.append(
-                document.createTextNode("Delete")
-            );
-            actions.append(
-                editButton,
-                completeButton,
-                deleteButton
-            );
-            card.append(header, actions);
-            return card;
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+    deleteButton.setAttribute("data-action", "delete");
+    deleteButton.append(
+        document.createTextNode("Delete")
+    );
+    actions.append(
+        editButton,
+        completeButton,
+        deleteButton
+    );
+    card.append(header, actions);
+    return card;
         }
         function renderTasks() {
             const fragment = document.createDocumentFragment();

@@ -34,7 +34,6 @@ Tokenization is the process of breaking the HTML source code into smaller meanin
 
 For example:
 
-```html
 <div>
     <h1>Task Manager</h1>
 </div>
@@ -58,11 +57,11 @@ For example:
 The DOM structure can be represented as:
 
 Document
-└── html
-    └── body
-        └── div
-            ├── h1
-            └── button
+    html
+        body
+            div
+                h1
+                button
 
 JavaScript can access and modify these DOM nodes.
 
